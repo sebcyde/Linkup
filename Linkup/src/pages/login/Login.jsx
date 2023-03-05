@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import BtnPage from './BtnPage';
-// import EmailIcon from '@mui/icons-material/Email';
-// import LockIcon from '@mui/icons-material/Lock';
-// import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
+import EmailIcon from '@mui/icons-material/Email';
+import LockIcon from '@mui/icons-material/Lock';
+import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
 
 export default function Login({ handleChange, text, contacts }) {
 	return (
@@ -13,7 +13,7 @@ export default function Login({ handleChange, text, contacts }) {
 				<div className="wrapper loginpagecontainer">
 					<h2>Login</h2>
 					<div className="input-username-wrapper">
-						{/* <EmailIcon /> */}
+						<EmailIcon />
 						<input
 							type="email"
 							placeholder="Email"
@@ -25,7 +25,7 @@ export default function Login({ handleChange, text, contacts }) {
 						/>
 					</div>
 					<div className="input-username-wrapper">
-						{/* <LockIcon /> */}
+						<LockIcon />
 						<input
 							type="Password"
 							placeholder="Password"
@@ -33,14 +33,14 @@ export default function Login({ handleChange, text, contacts }) {
 							name="password"
 							className="input-username"
 						/>
-						{/* <VisibilityOffIcon /> */}
+						<VisibilityOffIcon />
 					</div>
 					<BtnPage text={text} handleChange={handleChange} />
 					<Link to={'/signup'}>Sign Up</Link>
 					<Link to={'/'}>Home</Link>
 				</div>
 			</div>
-			)}
+			
 		</div>
 	);
 }

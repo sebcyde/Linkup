@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-// import PersonIcon from '@mui/icons-material/Person';
-// import EmailIcon from '@mui/icons-material/Email';
-// import LockIcon from '@mui/icons-material/Lock';
-// import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
+import PersonIcon from '@mui/icons-material/Person';
+import EmailIcon from '@mui/icons-material/Email';
+import LockIcon from '@mui/icons-material/Lock';
+import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
 import { Link, useNavigate } from 'react-router-dom';
 
 export default function SignUp({ addContact }) {
@@ -36,7 +36,7 @@ export default function SignUp({ addContact }) {
 				<div className="wrapper">
 					<h2>Registration</h2>
 					<div className="input-username-wrapper">
-						{/* <PersonIcon /> */}
+						<PersonIcon />
 						<input
 							type="text"
 							name="name"
@@ -47,7 +47,7 @@ export default function SignUp({ addContact }) {
 						/>
 					</div>
 					<div className="input-username-wrapper">
-						{/* <EmailIcon /> */}
+						<EmailIcon />
 						<input
 							type="email"
 							name="email"
@@ -59,7 +59,7 @@ export default function SignUp({ addContact }) {
 						/>
 					</div>
 					<div className="input-username-wrapper">
-						{/* <LockIcon /> */}
+						<LockIcon />
 						<input
 							type="password"
 							name="password"
@@ -68,7 +68,7 @@ export default function SignUp({ addContact }) {
 							value={contantInfo.password}
 							onChange={handleChange2}
 						/>
-						{/* <VisibilityOffIcon /> */}
+						<VisibilityOffIcon />
 					</div>
 					<button onClick={handleSubmit}>Register Now</button>
 					{/* <div className="text-wrapper">
@@ -77,7 +77,7 @@ export default function SignUp({ addContact }) {
 							Login now
 						</p>
 					</div> */}
-					<Link to={'/login'}>Sign Up</Link>
+					<Link to={'/login'}>Login</Link>
 					<Link to={'/'}>Home</Link>
 				</div>
 			</div>
