@@ -1,35 +1,44 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import './App.css'
+import { useState } from "react";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Login from "./pages/login/Login.jsx";
+import SignUp from "./pages/SignUp/SignUp.jsx";
+import Home from './pages/home/Home.jsx'
+import "./App.css";
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [text, SetText] = useState("");
+  const [contacts, setContacts] = useState([]);
+
+  const addContact = (contact) => {
+    setContacts([...contacts, contact])
+  }
+  const handleChange = (event) => {
+    SetText(event.target.value);
+    console.log(event.target.value)
+  };
+
+  const handleClick = () => {
+    SetText("");
+  };
 
   return (
-    <div className="App">
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src="/vite.svg" className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://reactjs.org" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-      <h2>malik is a hoe</h2>
-    </div>
-  )
+      <BrowserRouter>
+        <Routes>
+          <Route
+            path="/"
+            element={<Login  handleChange={handleChange} text={text} contacts={contacts}  />}
+          />
+          <Route
+            path="SignUp"
+            element={<SignUp  addContact={addContact}  />}
+          />
+          <Route
+            path="Home"
+            element={<Home handleChange={handleChange} text={text}  contact={contacts} />}
+          />
+        </Routes>
+      </BrowserRouter>
+  );
 }
 
-export default App
+export default App;
