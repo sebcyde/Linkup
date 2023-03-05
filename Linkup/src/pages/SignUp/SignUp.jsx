@@ -1,10 +1,9 @@
 import React, { useState } from 'react';
-import './First.css';
-import PersonIcon from '@mui/icons-material/Person';
-import EmailIcon from '@mui/icons-material/Email';
-import LockIcon from '@mui/icons-material/Lock';
-import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
-import { useNavigate } from 'react-router-dom';
+// import PersonIcon from '@mui/icons-material/Person';
+// import EmailIcon from '@mui/icons-material/Email';
+// import LockIcon from '@mui/icons-material/Lock';
+// import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
+import { Link, useNavigate } from 'react-router-dom';
 
 export default function SignUp({ addContact }) {
 	const [contantInfo, setContactInfo] = useState({
@@ -37,7 +36,7 @@ export default function SignUp({ addContact }) {
 				<div className="wrapper">
 					<h2>Registration</h2>
 					<div className="input-username-wrapper">
-						<PersonIcon />
+						{/* <PersonIcon /> */}
 						<input
 							type="text"
 							name="name"
@@ -48,7 +47,7 @@ export default function SignUp({ addContact }) {
 						/>
 					</div>
 					<div className="input-username-wrapper">
-						<EmailIcon />
+						{/* <EmailIcon /> */}
 						<input
 							type="email"
 							name="email"
@@ -60,7 +59,7 @@ export default function SignUp({ addContact }) {
 						/>
 					</div>
 					<div className="input-username-wrapper">
-						<LockIcon />
+						{/* <LockIcon /> */}
 						<input
 							type="password"
 							name="password"
@@ -69,15 +68,17 @@ export default function SignUp({ addContact }) {
 							value={contantInfo.password}
 							onChange={handleChange2}
 						/>
-						<VisibilityOffIcon />
+						{/* <VisibilityOffIcon /> */}
 					</div>
 					<button onClick={handleSubmit}>Register Now</button>
-					<div className="text-wrapper">
+					{/* <div className="text-wrapper">
 						<p>Already have an account?</p>
 						<p className="forgot-text" onClick={register}>
 							Login now
 						</p>
-					</div>
+					</div> */}
+					<Link to={'/login'}>Sign Up</Link>
+					<Link to={'/'}>Home</Link>
 				</div>
 			</div>
 		</div>
