@@ -1,13 +1,30 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
-import { LoginUser } from '../../config/Firebase';
+import { onAuthStateChanged } from '@firebase/auth';
+import React, { useState, useEffect } from 'react';
+import { useAuthState } from 'react-firebase-hooks/auth';
+import { Link, useNavigate } from 'react-router-dom';
+import { auth, LoginUser } from '../../config/Firebase';
 // import EmailIcon from '@mui/icons-material/Email';
 // import LockIcon from '@mui/icons-material/Lock';
 // import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
 
 export default function Login() {
-	const [Email, setEmail] = useState('');
 	const [Password, setPassword] = useState('');
+	const [Email, setEmail] = useState('');
+	const [user] = useAuthState(auth);
+	const navigate = useNavigate();
+
+	// Navigate to sign in if no user
+	useEffect(() => {
+		console.log('From UseEffect:', user);
+		onAuthStateChanged(auth, (user) => {
+			if (!user) {
+				console.log('From App. No User Present');
+				navigate('/login');
+			} else {
+				navigate('/');
+			}
+		});
+	}, [user]);
 
 	return (
 		<div className="LoginComponent">
