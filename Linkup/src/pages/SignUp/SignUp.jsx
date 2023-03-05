@@ -1,9 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 // import PersonIcon from '@mui/icons-material/Person';
 // import EmailIcon from '@mui/icons-material/Email';
 // import LockIcon from '@mui/icons-material/Lock';
 // import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
 import { Link, useNavigate } from 'react-router-dom';
+import { SignupUser } from '../../config/Firebase';
 
 export default function SignUp({ addContact }) {
 	const [contantInfo, setContactInfo] = useState({
@@ -16,19 +17,9 @@ export default function SignUp({ addContact }) {
 		setContactInfo({ ...contantInfo, [event.target.name]: event.target.value });
 	};
 
-	const handleSubmit = (event) => {
-		event.preventDefault();
-		console.log('whats here', contantInfo);
-		addContact(contantInfo);
-		setContactInfo({ name: '', email: '', password: '' });
-		navigate('/');
-	};
-
-	let navigate = useNavigate();
-
-	const register = () => {
-		navigate('/');
-	};
+	useEffect(() => {
+		console.log('contantInfo:', contantInfo);
+	}, [contantInfo]);
 
 	return (
 		<div className="SignupComponent">
@@ -70,7 +61,11 @@ export default function SignUp({ addContact }) {
 						/>
 						{/* <VisibilityOffIcon /> */}
 					</div>
-					<button onClick={handleSubmit}>Register Now</button>
+					<button
+						onClick={() => SignupUser(contantInfo.email, contantInfo.password)}
+					>
+						Register Now
+					</button>
 					{/* <div className="text-wrapper">
 						<p>Already have an account?</p>
 						<p className="forgot-text" onClick={register}>

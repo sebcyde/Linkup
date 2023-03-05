@@ -1,11 +1,14 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import BtnPage from './BtnPage';
+import { LoginUser } from '../../config/Firebase';
 // import EmailIcon from '@mui/icons-material/Email';
 // import LockIcon from '@mui/icons-material/Lock';
 // import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
 
-export default function Login({ handleChange, text, contacts }) {
+export default function Login() {
+	const [Email, setEmail] = useState('');
+	const [Password, setPassword] = useState('');
+
 	return (
 		<div className="LoginComponent">
 			{/* // try using this next contacts ?  */}
@@ -19,9 +22,9 @@ export default function Login({ handleChange, text, contacts }) {
 							placeholder="Email"
 							name="email"
 							required
-							value={text}
+							value={Email}
 							className="input-username "
-							onChange={handleChange}
+							onChange={(e) => setEmail(e.target.value)}
 						/>
 					</div>
 					<div className="input-username-wrapper">
@@ -32,10 +35,19 @@ export default function Login({ handleChange, text, contacts }) {
 							required
 							name="password"
 							className="input-username"
+							value={Password}
+							onChange={(e) => setPassword(e.target.value)}
 						/>
 						{/* <VisibilityOffIcon /> */}
 					</div>
-					<BtnPage text={text} handleChange={handleChange} />
+					<button
+						onClick={() => {
+							LoginUser(Email, Password);
+						}}
+					>
+						Sign In
+					</button>
+
 					<Link to={'/signup'}>Sign Up</Link>
 					<Link to={'/'}>Home</Link>
 				</div>
