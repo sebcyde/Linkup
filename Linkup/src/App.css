@@ -1,7 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville&display=swap');
+
 #root {
   width: 100%;
   height: 100%;
   margin: 0;
+  font-family: 'Libre Baskerville', serif;
 }
 
 

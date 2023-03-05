@@ -7,10 +7,14 @@ import "./App.css";
 
 function App() {
   const [text, SetText] = useState("");
+  const [contacts, setContacts] = useState([]);
 
+  const addContact = (contact) => {
+    setContacts([...contacts, contact])
+  }
   const handleChange = (event) => {
     SetText(event.target.value);
-    console.log("value is:", event.target.value);
+    console.log(event.target.value)
   };
 
   const handleClick = () => {
@@ -22,15 +26,15 @@ function App() {
         <Routes>
           <Route
             path="/"
-            element={<Login  handleChange={handleChange} text={text}  />}
+            element={<Login  handleChange={handleChange} text={text} contacts={contacts}  />}
+          />
+          <Route
+            path="SignUp"
+            element={<SignUp  addContact={addContact}  />}
           />
           <Route
             path="Home"
-            element={<Home handleChange={handleChange} text={text} />}
-          />
-            <Route
-            path="SignUp"
-            element={<SignUp />}
+            element={<Home handleChange={handleChange} text={text}  contact={contacts} />}
           />
         </Routes>
       </BrowserRouter>
