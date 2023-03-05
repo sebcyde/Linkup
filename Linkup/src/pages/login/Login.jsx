@@ -40,7 +40,6 @@ export default function Login({ handleChange, text, contacts }) {
 					<Link to={'/'}>Home</Link>
 				</div>
 			</div>
-			)}
 		</div>
 	);
 }
