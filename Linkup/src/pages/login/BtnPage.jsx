@@ -1,11 +1,12 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+
 
 export default function BtnPage() {
 	let navigate = useNavigate();
 
 	const nextPage = () => {
-		navigate('home');
+		navigate('/');
 	};
 
 	const signUpPage = () => {
@@ -14,10 +15,9 @@ export default function BtnPage() {
 
 	return (
 		<div className="footer-section">
-			<button onClick={nextPage}>Sign In</button>
-			<p className="forgot-text" onClick={signUpPage}>
-				Register
-			</p>
+			<button onClick={nextPage}>Home</button>
+            <Link to={'/'}>Home</Link>
+			<h2>hellow</h2>
 		</div>
 	);
 }

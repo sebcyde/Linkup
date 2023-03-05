@@ -1,10 +1,10 @@
+import PersonIcon from '@mui/icons-material/Person';
+import EmailIcon from '@mui/icons-material/Email';
+import LockIcon from '@mui/icons-material/Lock';
+import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
 import { onAuthStateChanged } from '@firebase/auth';
 import React, { useState, useEffect } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
-// import PersonIcon from '@mui/icons-material/Person';
-// import EmailIcon from '@mui/icons-material/Email';
-// import LockIcon from '@mui/icons-material/Lock';
-// import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
 import { Link, useNavigate } from 'react-router-dom';
 import { auth, SignupUser } from '../../config/Firebase';
 
@@ -38,7 +38,7 @@ export default function SignUp() {
 				<div className="wrapper">
 					<h2>Registration</h2>
 					<div className="input-username-wrapper">
-						{/* <PersonIcon /> */}
+						<PersonIcon />
 						<input
 							type="text"
 							name="name"
@@ -49,7 +49,7 @@ export default function SignUp() {
 						/>
 					</div>
 					<div className="input-username-wrapper">
-						{/* <EmailIcon /> */}
+						<EmailIcon />
 						<input
 							type="email"
 							name="email"
@@ -61,7 +61,7 @@ export default function SignUp() {
 						/>
 					</div>
 					<div className="input-username-wrapper">
-						{/* <LockIcon /> */}
+						<LockIcon />
 						<input
 							type="password"
 							name="password"
@@ -70,7 +70,7 @@ export default function SignUp() {
 							value={contantInfo.password}
 							onChange={handleChange2}
 						/>
-						{/* <VisibilityOffIcon /> */}
+						<VisibilityOffIcon />
 					</div>
 					<button
 						onClick={() => SignupUser(contantInfo.email, contantInfo.password)}
@@ -83,7 +83,7 @@ export default function SignUp() {
 							Login now
 						</p>
 					</div> */}
-					<Link to={'/login'}>Sign Up</Link>
+					<Link to={'/login'}>Login</Link>
 					<Link to={'/'}>Home</Link>
 				</div>
 			</div>

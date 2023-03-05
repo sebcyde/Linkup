@@ -1,11 +1,12 @@
+
+import EmailIcon from '@mui/icons-material/Email';
+import LockIcon from '@mui/icons-material/Lock';
+import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
 import { onAuthStateChanged } from '@firebase/auth';
 import React, { useState, useEffect } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { Link, useNavigate } from 'react-router-dom';
 import { auth, LoginUser } from '../../config/Firebase';
-// import EmailIcon from '@mui/icons-material/Email';
-// import LockIcon from '@mui/icons-material/Lock';
-// import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
 
 export default function Login() {
 	const [Password, setPassword] = useState('');
@@ -33,7 +34,7 @@ export default function Login() {
 				<div className="wrapper loginpagecontainer">
 					<h2>Login</h2>
 					<div className="input-username-wrapper">
-						{/* <EmailIcon /> */}
+						<EmailIcon />
 						<input
 							type="email"
 							placeholder="Email"
@@ -45,7 +46,7 @@ export default function Login() {
 						/>
 					</div>
 					<div className="input-username-wrapper">
-						{/* <LockIcon /> */}
+						<LockIcon />
 						<input
 							type="Password"
 							placeholder="Password"
@@ -55,7 +56,7 @@ export default function Login() {
 							value={Password}
 							onChange={(e) => setPassword(e.target.value)}
 						/>
-						{/* <VisibilityOffIcon /> */}
+						<VisibilityOffIcon />
 					</div>
 					<button
 						onClick={() => {

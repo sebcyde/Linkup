@@ -2,3 +2,9 @@
 @import '../AuthPages/Signup.scss';
 @import '../AuthPages/Login.scss';
 @import '../Home/Home.scss';
+
+body {
+    width: 100%;
+    height: 100vh;
+    margin: 0;
+}
