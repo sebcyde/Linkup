@@ -1,34 +1,36 @@
-import React, { useState } from 'react';
 import PersonIcon from '@mui/icons-material/Person';
 import EmailIcon from '@mui/icons-material/Email';
 import LockIcon from '@mui/icons-material/Lock';
 import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
+import { onAuthStateChanged } from '@firebase/auth';
+import React, { useState, useEffect } from 'react';
+import { useAuthState } from 'react-firebase-hooks/auth';
 import { Link, useNavigate } from 'react-router-dom';
+import { auth, SignupUser } from '../../config/Firebase';
 
-export default function SignUp({ addContact }) {
+export default function SignUp() {
 	const [contantInfo, setContactInfo] = useState({
 		name: '',
 		email: '',
 		password: '',
 	});
+	const [user] = useAuthState(auth);
 
 	const handleChange2 = (event) => {
 		setContactInfo({ ...contantInfo, [event.target.name]: event.target.value });
 	};
 
-	const handleSubmit = (event) => {
-		event.preventDefault();
-		console.log('whats here', contantInfo);
-		addContact(contantInfo);
-		setContactInfo({ name: '', email: '', password: '' });
-		navigate('/');
-	};
+	const navigate = useNavigate();
 
-	let navigate = useNavigate();
-
-	const register = () => {
-		navigate('/');
-	};
+	// Navigate to sign in if no user
+	useEffect(() => {
+		console.log('From UseEffect:', user);
+		onAuthStateChanged(auth, (user) => {
+			if (user) {
+				navigate('/');
+			}
+		});
+	}, [user]);
 
 	return (
 		<div className="SignupComponent">
@@ -70,7 +72,11 @@ export default function SignUp({ addContact }) {
 						/>
 						<VisibilityOffIcon />
 					</div>
-					<button onClick={handleSubmit}>Register Now</button>
+					<button
+						onClick={() => SignupUser(contantInfo.email, contantInfo.password)}
+					>
+						Register Now
+					</button>
 					{/* <div className="text-wrapper">
 						<p>Already have an account?</p>
 						<p className="forgot-text" onClick={register}>
