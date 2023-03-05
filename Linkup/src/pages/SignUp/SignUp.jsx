@@ -1,25 +1,36 @@
+import { onAuthStateChanged } from '@firebase/auth';
 import React, { useState, useEffect } from 'react';
+import { useAuthState } from 'react-firebase-hooks/auth';
 // import PersonIcon from '@mui/icons-material/Person';
 // import EmailIcon from '@mui/icons-material/Email';
 // import LockIcon from '@mui/icons-material/Lock';
 // import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
 import { Link, useNavigate } from 'react-router-dom';
-import { SignupUser } from '../../config/Firebase';
+import { auth, SignupUser } from '../../config/Firebase';
 
-export default function SignUp({ addContact }) {
+export default function SignUp() {
 	const [contantInfo, setContactInfo] = useState({
 		name: '',
 		email: '',
 		password: '',
 	});
+	const [user] = useAuthState(auth);
 
 	const handleChange2 = (event) => {
 		setContactInfo({ ...contantInfo, [event.target.name]: event.target.value });
 	};
 
+	const navigate = useNavigate();
+
+	// Navigate to sign in if no user
 	useEffect(() => {
-		console.log('contantInfo:', contantInfo);
-	}, [contantInfo]);
+		console.log('From UseEffect:', user);
+		onAuthStateChanged(auth, (user) => {
+			if (user) {
+				navigate('/');
+			}
+		});
+	}, [user]);
 
 	return (
 		<div className="SignupComponent">

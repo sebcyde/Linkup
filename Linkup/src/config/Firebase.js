@@ -1,5 +1,8 @@
-// Import the functions you need from the SDKs you need
 import { initializeApp } from 'firebase/app';
+import { doc, serverTimestamp, setDoc } from 'firebase/firestore';
+import { getFirestore } from 'firebase/firestore';
+import { getStorage } from 'firebase/storage';
+
 import {
 	getAuth,
 	createUserWithEmailAndPassword,
@@ -16,34 +19,64 @@ const firebaseConfig = {
 };
 
 export const app = initializeApp(firebaseConfig);
-export const Auth = getAuth();
+export const storage = getStorage(app);
+export const auth = getAuth(app);
+export const db = getFirestore(app);
 
-//Signup New Users
-export const SignupUser = async (email, password, auth = Auth) => {
+// Sign Up New Users
+export const SignupUser = async (email, password, Username) => {
 	try {
-		const UserCredentials = await createUserWithEmailAndPassword(
+		const UserCred = await createUserWithEmailAndPassword(
 			auth,
 			email,
 			password
 		);
-		console.log('Sign Up Succeszsful');
+		const user = UserCred.user;
+		console.log('Signed up as:', user);
+
+		// await setDoc(doc(db, `Users/${user.uid}`), {
+		// 	UserEmail: user.email,
+		// 	Username: Username,
+		// 	DisplayPicture: DefaultImage,
+		// 	CreationDate: user.metadata.creationTime,
+		// 	UID: user.uid,
+		// 	Admin: false,
+		// 	LastSeen: Date.now(),
+		// });
+
+		// await setDoc(doc(db, `Users/${user.uid}/MoreInfo/Lists`), {
+		// 	Favourites: [],
+		// });
+
+		// await setDoc(doc(db, `Users/${user.uid}/MoreInfo/Recommendations`), {
+		// 	Recommendations: [],
+		// });
+
+		// await setDoc(doc(db, `Users/${user.uid}/MoreInfo/Friends`), {
+		// 	Following: [],
+		// 	Followers: [],
+		// });
+
+		console.log('User Creation Successful:');
 	} catch (error) {
-		console.error(error);
-		console.log('Sign Up Failed:', error);
+		const errorCode = error.code;
+		const errorMessage = error.message;
+		console.log(`Error ${errorCode}:`, errorMessage);
 	}
 };
 
-//Log In Existing Users
-export const LoginUser = async (email, password, auth = Auth) => {
-	try {
-		const UserCredentials = await signInWithEmailAndPassword(
-			auth,
-			email,
-			password
-		);
-		console.log('Log In Successful');
-	} catch (error) {
-		console.log('Log In Failed:', error.code);
-		return error.code;
-	}
+// Sign In Existing Users
+export const LoginUser = async (email, password) => {
+	signInWithEmailAndPassword(auth, email, password)
+		.then((userCredential) => {
+			// Signed in
+			const user = userCredential.user;
+			console.log('Signed in as:', user);
+		})
+		.catch((error) => {
+			const errorCode = error.code;
+			const errorMessage = error.message;
+			console.log(`Error ${errorCode}:`, errorMessage);
+			alert('Invalid Credentials');
+		});
 };
