@@ -32,6 +32,7 @@ export default function SignUp() {
 		});
 	}, [user]);
 
+
 	return (
 		<div className="SignupComponent">
 			<div className="outfield">
