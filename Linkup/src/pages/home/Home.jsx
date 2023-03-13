@@ -3,6 +3,8 @@ import { Link, useNavigate } from 'react-router-dom';
 import { getAuth, onAuthStateChanged, signOut } from 'firebase/auth';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { auth } from '../../config/Firebase';
+import PrimarySearchAppBar from './PrimarySearchAppBar';
+import Section from './Section';
 
 
 export default function Home() {
@@ -29,13 +31,13 @@ export default function Home() {
 	}
 
 	return (
-		<div>
+		<div className='Home'>
 			<Link to={'/login'}>Login</Link>
 			<Link to={'/signup'}>Signup</Link>
 			<Link to={'/settings'}>Settings</Link>
-			<button onClick={click}> Log Out
-			
-			</button>
+			<button onClick={click}> Log Out</button>
+			<PrimarySearchAppBar user={user}/>
+			<Section /> 
 		</div>
 	);
 }
