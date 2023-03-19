@@ -1,17 +1,14 @@
 import React, { useState, useEffect } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
-import { getAuth, onAuthStateChanged, signOut } from 'firebase/auth';
+import { useNavigate } from 'react-router-dom';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { auth } from '../../config/Firebase';
-import PrimarySearchAppBar from './PrimarySearchAppBar';
-import Section from './Section';
-
+import HomeMain from './HomeMain';
+import TopNavbar from '../../components/Global/TopNavbar';
 
 export default function Home() {
 	const [Loading, setLoading] = useState(true);
 	const navigate = useNavigate();
 	const [user] = useAuthState(auth);
-	
 
 	console.log('what user', [user]);
 
@@ -22,22 +19,10 @@ export default function Home() {
 		}, 1000);
 	}, []);
 
-	const click = () => {
-		if(user) {
-			signOut(auth);
-		} else {
-			navigate('/Login')
-		}
-	}
-
 	return (
-		<div className='Home'>
-			<Link to={'/login'}>Login</Link>
-			<Link to={'/signup'}>Signup</Link>
-			<Link to={'/settings'}>Settings</Link>
-			<button onClick={click}> Log Out</button>
-			<PrimarySearchAppBar user={user}/>
-			<Section /> 
+		<div className="Home">
+			<TopNavbar />
+			<HomeMain />
 		</div>
 	);
 }
