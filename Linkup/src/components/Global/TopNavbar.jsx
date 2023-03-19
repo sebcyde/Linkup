@@ -42,17 +42,17 @@ function TopNavbar() {
 	};
 
 	// Navigate to login if no user
-	// React.useEffect(() => {
-	// 	onAuthStateChanged(auth, (user) => {
-	// 		if (!user) {
-	// 			console.log('From App. No User Present');
-	// 			navigate('/settings');
-	// 		} else {
-	// 			console.log('Current User:', user);
-	// 			// navigate('/');
-	// 		}
-	// 	});
-	// }, [user]);
+	React.useEffect(() => {
+		onAuthStateChanged(auth, (user) => {
+			if (!user) {
+				console.log('From App. No User Present');
+				navigate('/login');
+			} else {
+				console.log('Current User:', user);
+				navigate('/');
+			}
+		});
+	}, [user]);
 
 	return (
 		<AppBar position="static">
