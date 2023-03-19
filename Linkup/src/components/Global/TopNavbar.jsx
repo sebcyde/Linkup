@@ -138,7 +138,7 @@ function TopNavbar() {
 						<Button
 							key={'Dashboard'}
 							onClick={() => {
-								handleCloseNavMenu('/');
+								handleCloseNavMenu('');
 							}}
 							sx={{ my: 2, color: 'white', display: 'block' }}
 						>
