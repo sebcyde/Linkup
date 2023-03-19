@@ -11,6 +11,9 @@ import SignUp from './pages/SignUp/SignUp';
 import Login from './pages/Login/Login';
 import Home from './pages/Home/Home';
 import React from 'react';
+import Anime from './pages/Anime/Anime';
+import Manga from './pages/Manga/Manga';
+import People from './pages/People/People';
 
 const router = createBrowserRouter([
 	{
