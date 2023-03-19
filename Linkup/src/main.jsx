@@ -1,14 +1,15 @@
-import ReactDOM from 'react-dom/client';
-import './Styles/Globals/Global.scss';
-import {
-	createBrowserRouter,
-	RouterProvider,
-	useNavigate,
-} from 'react-router-dom';
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import Settings from './pages/Settings/Settings';
 import ErrorPage from './pages/Error/ErrorPage';
 import SignUp from './pages/SignUp/SignUp';
+import People from './pages/People/People';
+import ReactDOM from 'react-dom/client';
 import Login from './pages/Login/Login';
+import Anime from './pages/Anime/Anime';
+import Manga from './pages/Manga/Manga';
+import { Provider } from 'react-redux';
+import './Styles/Globals/Global.scss';
+import { store } from './Store/Store';
 import Home from './pages/Home/Home';
 import React from 'react';
 
@@ -53,6 +54,8 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById('root')).render(
 	<React.StrictMode>
-		<RouterProvider router={router} />
+		<Provider store={store}>
+			<RouterProvider router={router} />
+		</Provider>
 	</React.StrictMode>
 );

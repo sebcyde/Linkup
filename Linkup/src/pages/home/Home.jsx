@@ -13,11 +13,11 @@ export default function Home() {
 	console.log('what user', [user]);
 
 	// Initial app loading
-	useEffect(() => {
-		setTimeout(() => {
-			setLoading(false);
-		}, 1000);
-	}, []);
+	// useEffect(() => {
+	// 	setTimeout(() => {
+	// 		setLoading(false);
+	// 	}, 1000);
+	// }, []);
 
 	return (
 		<div className="Home">
