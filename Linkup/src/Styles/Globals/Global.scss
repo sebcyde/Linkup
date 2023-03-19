@@ -1,15 +1,27 @@
+// Globals
+@import './Variables.scss';
+
+// Homepage
+@import '../Home/Home.scss';
+@import '../Home/LeftSide.scss';
+@import '../Home/Center.scss';
+@import '../Home/RightSide.scss';
+
+// Settings Page
 @import '../Settings/Settings.scss';
+
+// Authentication Pages
 @import '../AuthPages/Signup.scss';
 @import '../AuthPages/Login.scss';
-@import '../Home/Home.scss';
-@import '../ErorrPage/Error.scss';
+
+// Error Page
+@import '../Error/Error.scss';
+
+// ?????
 @import '../Section/Section.scss';
-@import '../LeftSide/LeftSide.scss';
-@import '../Center/Center.scss';
-@import '../RightSide/RightSide.scss';
 
 body {
-    width: 100%;
-    height: 100vh;
-    margin: 0;
+	width: 100%;
+	height: 100vh;
+	margin: 0;
 }
