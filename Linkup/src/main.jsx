@@ -28,6 +28,22 @@ const router = createBrowserRouter([
 		element: <SignUp />,
 		errorElement: <ErrorPage />,
 	},
+
+	{
+		path: '/anime',
+		element: <Anime />,
+		errorElement: <ErrorPage />,
+	},
+	{
+		path: '/manga',
+		element: <Manga />,
+		errorElement: <ErrorPage />,
+	},
+	{
+		path: '/people',
+		element: <People />,
+		errorElement: <ErrorPage />,
+	},
 	{
 		path: '/settings',
 		element: <Settings />,
