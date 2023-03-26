@@ -1,3 +1,16 @@
+// Globals
+@import './Variables.scss';
+
+// Homepage
+@import '../Home/Home.scss';
+@import '../Home/LeftSide.scss';
+@import '../Home/Center.scss';
+@import '../Home/RightSide.scss';
+
+// Anime Page
+@import '../Anime/AllAnime.scss';
+
+// Settings Page
 @import '../Settings/Settings.scss';
 @import '../AuthPages/Signup.scss';
 @import '../AuthPages/Login.scss';
@@ -7,6 +20,10 @@
 @import '../LeftSide/LeftSide.scss';
 @import '../Center/Center.scss';
 @import '../RightSide/RightSide.scss';
+
+// people
+@import '../People/People.scss';
+
 
 body {
     width: 100%;

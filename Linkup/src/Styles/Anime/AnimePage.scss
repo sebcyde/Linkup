@@ -1,0 +1,118 @@
+.AnimeSearchPageContainer {
+	border: 1px solid blue;
+	max-width: 1440px;
+	margin: 0 auto;
+	padding: 20px;
+}
+
+.AllAnimePage {
+	padding: 20px;
+	display: flex;
+	width: 100%;
+
+	.LeftSection {
+		flex-direction: column;
+		margin-right: auto;
+		margin-right: 10px;
+		display: flex;
+		min-width: 75%;
+
+		.Header {
+			margin: 20px 0px;
+			font-size: 30px;
+			font-weight: 600;
+		}
+
+		.AZFilter {
+			justify-content: space-evenly;
+			border: 1px solid red;
+			flex-direction: column;
+			height: fit-content;
+			align-items: center;
+			min-height: 100px;
+			display: flex;
+
+			.LetterContainer {
+				justify-content: space-evenly;
+				display: flex;
+				width: 100%;
+				p {
+					text-decoration: underline;
+					font-weight: 600;
+					font-size: 22px;
+					color: blue;
+					cursor: pointer;
+
+					&.Active {
+						color: red;
+					}
+				}
+			}
+		}
+
+		.AnimeList {
+			border: 1px solid blue;
+			height: 100%;
+
+			.AnimeContainer {
+				padding: 10px;
+				display: flex;
+
+				&:nth-of-type(odd) {
+					background-color: lightgray;
+				}
+
+				.ImageContainer {
+					justify-content: center;
+					align-items: center;
+					display: flex;
+
+					img {
+						max-height: 170px;
+						object-fit: cover;
+						width: 120px;
+					}
+				}
+
+				.AnimeDetailsContainer {
+					flex-direction: column;
+					justify-content: space-evenly;
+					padding: 0px 10px;
+					display: flex;
+
+					.AnimeTitle {
+						font-weight: 600;
+						color: navy;
+					}
+				}
+			}
+		}
+	}
+	.RightSection {
+		margin-left: 10px;
+		width: 100%;
+
+		.GenreFilter {
+			justify-content: space-evenly;
+			border: 1px solid green;
+			flex-direction: column;
+			align-items: center;
+			display: flex;
+			height: 100%;
+			width: 100%;
+
+			p {
+				text-decoration: underline;
+				font-weight: 600;
+				font-size: 22px;
+				color: blue;
+				margin: 10px;
+				cursor: pointer;
+
+				&.Active {
+					color: red;
+				}
+			}
+		}
+	}
+}
