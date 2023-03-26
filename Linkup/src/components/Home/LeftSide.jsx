@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import KeyboardDoubleArrowDownIcon from "@mui/icons-material/KeyboardDoubleArrowDown";
@@ -21,9 +22,9 @@ export default function LeftSide() {
     }
   };
 
-  useEffect(() => {
-    fetchData();
-  }, []);
+	useEffect(() => {
+		fetchData();
+	}, []);
 
   const openNew = async () => {
     console.log("clicking here");
@@ -101,4 +102,5 @@ export default function LeftSide() {
       )}
     </div>
   );
+
 }
