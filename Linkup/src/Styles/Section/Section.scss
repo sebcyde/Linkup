@@ -7,5 +7,8 @@
     box-sizing: border-box;
     gap: 20px;
     padding: 20px;
-    background-color: whitesmoke;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background: linear-gradient(110deg, #90e0ef 60%, #48cae4 60%);
 }
