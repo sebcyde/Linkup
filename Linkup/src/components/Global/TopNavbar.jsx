@@ -49,7 +49,7 @@ function TopNavbar() {
 				navigate('/login');
 			} else {
 				console.log('Current User:', user);
-				navigate('/');
+				// navigate('/');
 			}
 		});
 	}, [user]);
@@ -138,7 +138,7 @@ function TopNavbar() {
 						<Button
 							key={'Dashboard'}
 							onClick={() => {
-								handleCloseNavMenu('/');
+								handleCloseNavMenu('');
 							}}
 							sx={{ my: 2, color: 'white', display: 'block' }}
 						>
@@ -185,6 +185,7 @@ function TopNavbar() {
 					<Box sx={{ flexGrow: 0 }}>
 						<Tooltip title="Open settings">
 							<IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
+								
 								<Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
 							</IconButton>
 						</Tooltip>
