@@ -49,7 +49,7 @@ function TopNavbar() {
 				navigate('/login');
 			} else {
 				console.log('Current User:', user);
-				navigate('/');
+				// navigate('/');
 			}
 		});
 	}, [user]);
